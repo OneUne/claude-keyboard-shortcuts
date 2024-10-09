@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Claude.ai Keyboard Shortcuts",
+    "version": "1.0",
+    "description": "Adds keyboard shortcuts to Claude.ai",
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ],
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://claude.ai/*"
+            ],
+            "js": [
+                "scripts/content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "new-chat": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+O",
+                "mac": "Command+Shift+O"
+            },
+            "description": "Start a new chat"
+        },
+        "copy-content": {
+            "suggested_key": {
+                "default": "Alt+Shift+C"
+            },
+            "description": "Copy chat contents"
+        },
+        "new-chat-tab": {
+            "suggested_key": {
+                "default": "Shift+Alt+O"
+            },
+            "description": "Open new Claude.ai chat in a new tab"
+        }
+    }
+}
